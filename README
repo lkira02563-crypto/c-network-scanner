@@ -1,0 +1,60 @@
+# Network Scanner (Experimental Project)
+
+## Overview
+
+This project is a low-level network scanner written in C. It is designed to explore basic concepts of packet capture, TCP port probing, and local subnet discovery using raw sockets and system-level networking APIs on Linux.
+
+This is **not a production-ready tool**. It is purely educational and experimental.
+
+## Features
+
+* Local network discovery (subnet detection)
+* Host availability checking (basic TCP connect probing)
+* Simple port scanning using a predefined list of common services
+* Raw packet inspection using AF_PACKET sockets
+
+## Important Notes
+
+This project is **not optimized and not stable for real-world use**.
+
+It has several limitations:
+
+* Requires **root privileges** to run due to raw socket usage
+* Relies on low-level packet capture which may behave inconsistently across networks
+* Performance is not optimized (sequential scanning, no concurrency)
+* Network discovery logic is experimental and may not work on all interface types
+
+## Requirements
+
+* Linux system
+* GCC or compatible C compiler
+* Root access (or CAP_NET_RAW capability)
+
+To run:
+
+```bash
+sudo ./main
+```
+
+## Disclaimer
+
+This tool is intended for **educational purposes only**, to understand:
+
+* How TCP connections are established
+* How raw sockets work in Linux
+* Basic network scanning techniques
+
+Do not use it on networks you do not own or have permission to test.
+
+## Future Improvements
+
+* Replace raw packet-based discovery with system-based subnet detection (`getifaddrs` or `ioctl`)
+* Add multithreading for faster scanning
+* Improve error handling and portability
+* Reduce or eliminate root dependency where possible
+
+---
+
+**Status:** Experimental / Work in Progress
+
+
